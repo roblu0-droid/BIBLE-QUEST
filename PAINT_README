@@ -1,14 +1,11 @@
 PROJECT INFORMATION
 
-Name: [Insert Name]
-Section: [Insert Section]
-Subject: Python Programming
+Name: TIMOTHY SETH P. ROBLES 
+Section: SE-3A
+Subject: CT5
 
 PROJECT DESCRIPTION
-
-Creative Paint Studio is a desktop paint application built with Python, Tkinter, and Pillow. It provides a clean creative-studio interface where the user can draw freehand, erase, create shapes, choose colors, adjust brush thickness, undo actions, and open or save image files. The drawing surface is a fixed-size white canvas, while the actual artwork is stored in a Pillow image so that everything drawn on screen is also saved correctly.
-
-To run the program, install Pillow with the command python -m pip install Pillow, then run paint_application.py using Python 3.
+A simple Paint studio created out of python features same with my desktop paint but this is my own version. It was developed using Tkinter and Pillow.
 
 TECHNOLOGIES USED
 
@@ -43,43 +40,25 @@ Additional Features
    - Yellow
    - Purple
 
-PROGRAM IMPLEMENTATION
-
+PROGRAM IMPLEMENTATION 
 Drawing System
-
-Freehand drawing uses three mouse events on the Tkinter Canvas. Pressing the left mouse button calls start_drawing, which records the starting point and saves a copy of the current image for undo. Moving the mouse calls draw_motion, which draws a line on the Pillow image from the previous point to the current point using ImageDraw. Releasing the button calls finish_drawing, which ends the stroke. One complete press-drag-release is stored as one undoable action, not every tiny movement.
-
+The drawing tool uses mouse movements to draw lines on the canvas. Each complete drawing action is saved so it can be undone later.
 Color Selection
-
-The Choose Color button opens the system color chooser through colorchooser.askcolor. When a color is selected, set_color updates the active drawing color and changes the color indicator label. The six quick color buttons also call set_color with preset colors. Changing colors never changes the brush size.
-
+Users can choose their own colors using the color picker or select from six preset colors. The selected color is used for the next drawing action.
 Brush Size
-
-A horizontal Scale widget lets the user choose any brush size from 1 to 100. The change_brush_size function converts the slider value to an integer and updates the size label and status bar immediately. The value is used as the width of freehand lines and shape outlines.
-
+The brush size can be adjusted using a slider from 1 to 100. The selected size affects the thickness of lines and shapes.
 Eraser Tool
-
-Selecting the Eraser tool switches the active tool to eraser. The paint_color function then returns white instead of the chosen color, so drawing with the eraser paints white pixels on the Pillow image. Because the saved file comes from that same Pillow image, erased areas are also white in the saved picture.
-
+The eraser works by drawing white over the existing content, allowing users to remove unwanted parts of their drawings.
 Shape Tools
-
-The Line, Rectangle, Oval, and Triangle tools all work by dragging from a starting point to an ending point. While the mouse moves, preview_shape_drawing draws a temporary outline or fill on the Tkinter Canvas using the preview tag. When the mouse is released, the preview is deleted and draw_final_shape draws the permanent shape into the Pillow image. Rectangles, ovals, and triangles can be filled when the Fill Shapes checkbox is selected. The triangle is built from three points: the top middle, bottom left, and bottom right of the drag box.
-
+The application includes line, rectangle, oval, and triangle tools. Users can create shapes by dragging the mouse, and some shapes can be filled with color.
 Undo Function
-
-The program keeps a history list of Pillow image copies. Before every action, push_history stores the current image state. The undo function removes the most recent saved state and restores it to the canvas. This reverses one complete stroke, one shape, a clear operation, or an opened image. The history is limited to 50 states to keep memory use reasonable.
-
+The undo feature allows users to reverse their previous actions, such as drawing, creating shapes, or clearing the canvas.
 Clear Canvas
-
-The Clear button calls clear_canvas, which first displays a Yes or No confirmation dialog asking whether the entire canvas should be cleared. If the user chooses No, nothing happens. If the user chooses Yes, the current image is saved to history, a white rectangle is drawn over the whole Pillow image, and the canvas is refreshed.
-
+The Clear button displays a confirmation message before removing everything from the canvas. Users can choose Yes or No.
 Open and Save Image
-
-The Open button uses filedialog.askopenfilename to select a PNG, JPG, JPEG, or BMP file. The image is converted to RGB, resized to fit inside the fixed canvas while keeping its proportions, centered on a white background of the required canvas size, and then displayed. Drawing can continue on the opened image. The Save button uses filedialog.asksaveasfilename and saves the actual Pillow image as PNG, JPEG, or BMP. A success message appears after saving, and errors are shown with messagebox.
-
+Users can open existing PNG, JPG, JPEG, and BMP images and save their finished drawings in supported formats.
 Pillow Integration
-
-Pillow is the image engine of the application. Image creates and stores the white canvas image. ImageDraw performs all drawing operations such as lines, ellipses, rectangles, polygons, and fills. ImageTk converts the Pillow image into a form the Tkinter Canvas can display. The refresh_canvas function keeps the Tkinter view and the Pillow image synchronized after every change.
+Pillow handles the image creation and drawing operations, while Tkinter displays the canvas. It also helps keep the displayed drawing and saved image synchronized.
 
 FUNCTIONS USED
 
@@ -107,37 +86,16 @@ save_image: Saves the Pillow image to a file.
 section: Creates a labeled toolbar section.
 
 SCREENSHOTS
+Full Application Interface, Drawing Tools,Shape Tools, Color and Brush Controls, Open and Save Functionality
+(FILES CAN BE SEEN FOLDER NAMED: PYTHON WEEKLY TASK AND CLICK ANOTHER FOLDER NAMED QUIZGAME_SCREENSHOTS)
 
-1. Full Application Interface
 
-[Insert screenshot here.]
-
-2. Drawing Tools
-
-[Insert screenshot here.]
-
-3. Shape Tools
-
-[Insert screenshot here.]
-
-4. Color and Brush Controls
-
-[Insert screenshot here.]
-
-5. Open and Save Functionality
-
-[Insert screenshot here.]
 
 CHALLENGES ENCOUNTERED
 
-One challenge was keeping the Tkinter Canvas and the Pillow image synchronized. Drawing directly on the Canvas would look correct on screen but would not be saved. This was solved by drawing on the Pillow image first and then refreshing the Canvas from that image after every change.
-
-Another challenge was making Undo reverse a whole stroke instead of every small mouse movement. This was solved by saving one image snapshot when the mouse button is pressed and not saving again until the next complete action begins.
-
-A third challenge was showing a shape preview without permanently changing the artwork. This was solved by drawing the preview only on the Canvas with a special preview tag, then deleting it and drawing the final shape on the Pillow image when the mouse button is released.
-
-Fitting opened images into the fixed canvas was also tricky. The solution was to resize the image proportionally and paste it onto a white background that is exactly the canvas size, so the saved image always matches the visible canvas.
+I had a hard time getting some tools to work properly, especially the undo and shape features. Sometimes the drawings wouldn't display or save the way I wanted, so I had to keep testing and fixing things until everything finally worked.
 
 CONCLUSION
+This activity helped to master python although the time is running still manage to make it in time. Also, this is not what i just want to make but other python projects besides this activity is kinda new making a paint python file
+it intrigued my mind to create something out of scratch.
 
-This project helped me understand how a graphical application combines interface events with real image data. I learned how mouse events control drawing, how Pillow stores and modifies images, and why it is important to keep the displayed view and the saved file identical. Building the undo history and shape previews also improved my understanding of organizing code into clear, reusable functions.

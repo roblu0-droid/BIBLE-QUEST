@@ -51,26 +51,18 @@ The highest score is saved in a text file and loaded whenever the game is opened
 Functions Used:
 The program uses functions to display questions, manage the timer, check answers, calculate scores, show results, save high scores, and restart the game.
 
-## Screenshots
+Screenshots
+(SCREENSHOT FILES ARE LOCATED INSIDE PYTHON WEEKLY TASK AND CLICK ANOTHER FOLDER NAMED: QUIZGAME_SCREENSHOTS)
+1. Start Screen
+2. Quiz Question Screen
+3. Answer Feedback
+4. Results Screen
+5. Saved High Score
 
-### 1. Start Screen
 
+Challenges Encountered
+It got me thinking of any bible questions to put in the game. I was gonna give it with difficulty setting but the time is of the essence it requires a longer syntax and more questions so
+i just stick with easy mode.
 
-
-### 2. Quiz Question Screen
-[Insert screenshot here.]
-
-### 3. Answer Feedback
-[Insert screenshot here.]
-
-### 4. Results Screen
-[Insert screenshot here.]
-
-### 5. Saved High Score
-[Insert screenshot here.]
-
-## Challenges Encountered
-[Describe the challenges you experienced while developing the project and how you solved them.]
-
-## Conclusion
-[Write a short reflection about what you learned from this project.]
+Conclusion
+i hope in the future to make more python related projects to be a master exactly i know it takes a long time and place to further enhance my skills but i know i can do it cause am not alone! Hope u Enjoy my Game!!!

@@ -1,7 +1,7 @@
  Quiz System
  Project Information
  
-Name:TIMOTHY SETH P. ROBLES
+Name: TIMOTHY SETH P. ROBLES
 Section: SE-3A
 Subject: CT5
 Quiz Topic: BIBLE QUEST
